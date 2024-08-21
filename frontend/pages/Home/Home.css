@@ -1,0 +1,82 @@
+.Home{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.HomeTop{
+    background-color: black;
+    display: flex;
+    flex-direction: row;
+    min-height: 60px;
+    max-height: 70px;
+    min-width: 100%;
+    column-gap: 20px;
+}
+.HomeTopLeft{
+    flex: 6;
+    display: flex;
+    background-color: black;
+    justify-content: flex-end;
+    align-items: center;
+}
+.searchContainer{
+    display: flex;
+    min-width: 50%;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    border-radius: 20px;
+    background-color: rgb(57, 55, 55);
+    color: white;
+}
+.searchContainer input{
+    min-width: 90%;
+    height: 100%;
+    background-color: white;
+    min-height: 40px;
+    max-height: 50px;
+    outline: none;
+    border: none;
+    font-size: 15px;
+    background: transparent;
+    color: white;
+}
+
+.searchBtn{
+    width: 40px;
+    height: 30px;
+    object-fit: contain;
+    z-index: 2;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    border-radius: 20px;
+    background: transparent;
+    color: rgb(246, 245, 245);
+    font-weight: 100;
+    font-size: 10px;
+    stroke-width:0.5em;
+}
+
+.HomeTopRight{
+    flex: 3;
+}
+.HomeMiddle{
+    min-height: 310px;
+    display: flex;
+    column-gap: 20px;
+    max-width: 95%;
+    margin: 10px 0px 10px 30px;
+    padding-bottom: 10px;
+}
+.topResult{
+    flex: 1.5;
+}
+.simSongs{
+    flex: 3;
+}
+.topResult{
+    display: flex;
+}

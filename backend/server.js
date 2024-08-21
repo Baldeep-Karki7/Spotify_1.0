@@ -57,7 +57,7 @@ app.get('/success',async(req,res)=>
             const result = await response.json();
             console.log(result);
 
-            res.redirect('http://localhost:5173?'+querystring.stringify(
+            res.redirect('http://localhost:5173/?'+querystring.stringify(
                 {
                     access_token : result.access_token,
                     refresh_token : result.refresh_token,
@@ -116,6 +116,7 @@ app.get('/api/refresh',async(req,res)=>
         console.log(error);
     }
 });
+
 
 
 app.listen(PORT,()=>

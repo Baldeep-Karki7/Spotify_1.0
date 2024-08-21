@@ -1,0 +1,77 @@
+.topResult{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+    row-gap: 3px;
+}
+.tR-header{
+    flex: 0.2;
+    font-weight: bold;
+    font-size: 23px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: black;
+    padding-left: 20px;
+}
+
+.tR-Main{
+    flex: 0.8;
+    background: transparent;
+    background-color: rgb(28, 28, 28);
+    border-radius: 7px;
+    position: relative;
+    transition: background-color ease 0.3s;
+}
+.tR-Main:hover{
+    background-color: rgb(62, 62, 62);
+    cursor: pointer;
+}
+.tR-Main p{
+    margin-left: 21px;
+    margin-right: 15px;
+}
+.imageContainer{
+    margin-top: 21px;
+    max-width: 100px;
+    max-height: 100px;
+}
+.imageContainer img{
+    width: 100%;
+    height: 100%;
+}
+.tR-songName{
+    font-size: 32px;
+    font-family: bold;
+    letter-spacing: 1px;
+    margin-bottom: 0px;
+}
+.tR-artist{
+    margin-top: 0px;
+    font-size: 14px;
+}
+.tRa-left{
+    color: rgb(158, 157, 157);
+}
+.tRa-right{
+    color: white;
+}
+.tRa-right:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.tR-playBtn{
+    max-width: 50px;
+    max-height: 50px;
+    z-index: 2;
+    position: absolute;
+    transform: translateY(40%);
+    right: 25px;
+    display: none;
+    transition: display transform ease-in 0.3s;
+}
+.tR-Main:hover>.tR-playBtn{
+    transform: translateY(-90%);
+    display: block;
+}

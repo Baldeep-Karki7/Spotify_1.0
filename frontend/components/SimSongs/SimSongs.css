@@ -1,0 +1,133 @@
+.simSongs
+{   display: flex;
+    flex-direction: column;
+    row-gap: 3px;
+    background-color: black;
+    height: 100%;
+}
+.ss-title{
+    color: white;
+    margin-bottom: 10px;
+    margin-left: 15px;
+
+}
+.simSongs-each{
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    position: relative;
+    min-height: 60px;
+    max-height: 65px;
+    align-items: center;
+    margin: 0px 10px 5px 10px;
+}
+.simSongs-each:hover{
+    background-color: rgb(34, 34, 34);
+    border-radius: 7px;
+}
+.sse-left{
+    flex: 0.45;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 60px;
+    margin-left: 10px;
+    position: relative;
+}
+.songImage{
+    width: 40px;
+    height: 38px;
+    object-fit: contain;
+    z-index: 1;
+}
+.play{
+    width: 10px;
+    height: 10px;
+    z-index: 2;
+    position: absolute;
+    top: 40%;
+    right: 40%;
+    display: none;
+}
+.simSongs-each:hover>.sse-left>.play{
+    display: block;
+}
+.simSongs-each:hover>.sse-left>.songImage{
+    opacity: 0.7;
+}
+.sse-middle{
+    display: flex;
+    flex-direction: column;
+    flex: 7;
+    max-height: 40px;
+    row-gap: 5px;
+    justify-content: flex-end;
+}
+.sseM-top{
+    flex: 1;
+    font-weight: 500;
+    color: white;
+}
+.sseM-bottom{
+    flex: 1;
+    font-weight: 400;
+    font-size: 14px;
+    color: rgb(141, 141, 141);
+    display: inline;
+}
+.sseM-bottom-span:hover{
+    text-decoration: underline;
+    color: white;
+    cursor: pointer;
+}
+
+.sse-right
+{
+    flex: 2;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    column-gap: 10px;
+}
+
+.sseR-left{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.sseR-left span{
+    display: none;
+    font-size: 23px;
+    color: rgb(158, 157, 157);
+}
+
+.simSongs-each:hover>.sse-right>.sseR-left>span{
+    display: block;
+}
+.sseR-middle{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 14px;
+    color: rgb(158, 157, 157);
+    flex: 2;
+}
+.sseR-right{
+    display: flex;
+    flex: 1;
+    align-items: top;
+    padding-left: 10px;
+}
+.sseR-right span{
+    margin-top:3px;
+    display: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+.simSongs-each:hover>.sse-right>.sseR-right>span{
+    display: block;
+}
+

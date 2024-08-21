@@ -1,0 +1,128 @@
+.topTracksContainer{
+    display: flex;
+    flex-direction: column;
+    max-height: 500px;
+    width: 100%;
+    align-items: center;
+    row-gap: 10px;
+}
+.topTracks-title{
+    color: black;
+    display: flex;
+    flex-direction: row;
+    background-color: black;
+    width: 80%;
+    margin-bottom: 10px;
+}
+.ttt-left{
+    flex: 3;
+    border: 1px solid black;
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/*title right part*/
+.ttt-right{
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    column-gap: 5px;
+    border: 1px solid black;
+}
+.searchbar-container{
+    width: 250px;
+    background-color: white;
+    display: flex;
+    border-radius: 14px;
+    margin-right: 10px;
+}
+.searchbar-container button{
+    background-color: white;
+    border: none;
+    border-left: 1px solid black;
+    border-top-right-radius: 14px;
+    border-bottom-right-radius:14px ;
+}
+.searchbar-container input{
+    width:200px;
+    padding: 8px;
+    border-radius: 10px;
+    border: 0px;
+    border: none;
+    outline: none;
+}
+.searchbar-container button img{
+    background-color: white;
+}
+
+
+
+/*trakcs part*/
+
+.topTracks{
+    width: 90%;
+    max-height: 300px;
+    display: flex;
+    flex-direction: row;
+    column-gap: 40px;
+    justify-content: center;
+    overflow-x: scroll;
+}
+.topTracks::-webkit-scrollbar{
+    display: none;
+}
+li{
+    list-style: none;
+}
+.track-card{
+    min-width: 220px;
+    min-height: 220px;
+    max-width: 280px;
+    max-height: 280px;
+    background-color: black;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.track-card img{
+    width: auto;
+    height: auto;
+}
+.trackName{
+    margin: 0px 10px 10px 10px;
+}
+.trackName:hover{
+    text-decoration: underline;
+}
+.img-p{
+    z-index: 1;
+    position: relative;
+}
+.playButton{
+    z-index: 2;
+    display: none;
+    position: absolute;
+    bottom: 20px;
+    right: 10px;
+    max-width: 65px;
+    max-height: 65px;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity ease-in 0.3s;
+    cursor: pointer;
+}
+.track-card:hover{
+    background-color: rgb(60, 60, 60);
+}
+.track-card:hover>.img-p>a>.playButton{
+    opacity: 1;
+    display: block;
+}
+
+
+
+

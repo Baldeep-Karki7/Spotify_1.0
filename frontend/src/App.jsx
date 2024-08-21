@@ -1,5 +1,8 @@
-import { useEffect,useState} from "react";
-import Profile from "./Profile";
+import { useEffect,useState,createContext} from "react";
+import Profile from "../pages/Profile/Profile.jsx";
+import Home from '../pages/Home/Home.jsx';
+
+export const tokenContext = createContext();
 
 function App(){
 
@@ -71,9 +74,13 @@ function App(){
 
   return(
    (accessToken &&
+    <tokenContext.Provider value={accessToken}>
     <div>
-    <Profile access_token={accessToken}/>
+      {/* <Profile access_token={accessToken}/> */}
+
+      <Home/>
     </div>
+    </tokenContext.Provider>
    )
   )
 }

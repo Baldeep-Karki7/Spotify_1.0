@@ -1,11 +1,12 @@
-import React from "react";
-import { useState,useEffect } from "react";
+import React, { useContext, useState, useEffect } from "react";
+import TopTracks from "../../components/TopTracks/TopTracks.jsx";
 import './Profile.css';
+import { tokenContext } from "../../src/App.jsx";
 
 
-function Profile({access_token})
+function Profile()
 {
-    const [token,setToken] = useState(access_token);
+    const token = useContext(tokenContext);
     const [name,setName] = useState(null);
     const [email,setEmail] = useState(null);
     const [country,setCountry] = useState(null);
@@ -63,14 +64,11 @@ function Profile({access_token})
                 </div>
 
                 <div className="right">
-                    <div className="title">Profile</div>
+                    <div className="profile-title">Profile</div>
                     <div className="name">{name}</div>
                 </div>
             </div>
-
-            <div className="bottom">
-                
-            </div>
+            <TopTracks/>
         </div>
     )
 

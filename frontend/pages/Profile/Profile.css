@@ -2,8 +2,11 @@
    min-width: 80vh;
    min-height: 80vh;
    display: flex;
+   flex-direction: column;
    justify-content: center;
    font-family: Arial, Helvetica, sans-serif;
+   row-gap: 20px;
+   align-items: center;
 }
 .top{
     min-width: 80%;
@@ -43,7 +46,7 @@
     row-gap: 5px;
     padding-left: 10px;
 }
-.title{
+.profile-title{
     flex: 2;
     color: rgb(191, 191, 191);
     font-size: 13px;

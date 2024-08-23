@@ -39,5 +39,25 @@ export const getSong = async(name,token,type="track")=>
     }
 }
 
+export const getAllArtists = async(name,token,type="artist")=>
+{
+    try{
+        const response = await getResponse(name,token,type);
+        return (response.artists.items);
+    }
+    catch(error)
+    {
+        console.log(error);
+    }
+}
+const query = 'abc';
+
+function abc()
+{
+    return query? query: undefined;
+}
+
+console.log(abc());
+
 
 

@@ -1,0 +1,86 @@
+.all-Artists{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(25, 25, 25);
+    padding: 0px 10px 0px 10px;
+    padding-right: 10px;
+}
+.all-Artists span:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+.aA-header{
+    min-height: 50px;
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    letter-spacing: 1.2px;
+}
+.aA-main{
+    min-height: 80%;
+    min-height: 90%;
+    display: flex;
+    column-gap: 15px;
+    color: white;
+}
+.each-artist{
+    max-height: 80%;
+    flex: 1;
+    column-gap: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-bottom: 10px;
+    transition: all 0.1s;
+}
+.eA-image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2px;
+    position: relative;
+}
+.eA-image img{
+    width: 165px;
+    height: 165px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.eA-name{
+    color: white;
+    font-weight: 300;
+    font-size: 15.5px;
+    letter-spacing: 1px;
+    margin: 9px 0px 4px 10px;
+}
+.eA-class{
+    font-size: 13.5px;
+    font-weight: 200;
+    color: rgb(149, 148, 148);
+    margin: 6px 0px 10px 10px;
+}
+.ea-playBtn{
+    max-width: 48px;
+    max-height: 48px;
+    position: absolute;
+    z-index: 2;
+    right: 8px;
+    bottom: -10px;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.4s;
+}
+.ea-playBtn:hover {
+    transform: scale(1.2);
+}
+.each-artist:hover .ea-playBtn{
+    opacity: 1;
+    transform: translateY(-10px);
+}
+.each-artist:hover{
+    background-color: rgb(45, 44, 44);
+    border-radius: 10px;
+    cursor: pointer;
+}

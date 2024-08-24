@@ -1,6 +1,6 @@
 .Home{
     width: 100%;
-    height: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     font-family: Arial, Helvetica, sans-serif;
@@ -64,7 +64,6 @@
     flex: 3;
 }
 .HomeMiddle{ /*Universal for all boxes in home page*/
-    min-height: 310px;
     display: flex;
     column-gap: 20px;
     max-width: 95%;
@@ -81,9 +80,15 @@
     display: flex;
 }
 .HomeMiddle-artist{
-    min-height: 180px;
-    max-height: 200px;
+    flex: 1;
     background-color: black;
-    margin: 10px 0px 10px 35px;
+    margin: 10px 0px 0px 35px;
     max-width: 95%;
 }
+.HomeMiddle-Albums{
+    flex: 1;
+    background-color: gray;
+    max-width: 95%;
+    margin: 10px 0px 0px 35px ;
+}
+

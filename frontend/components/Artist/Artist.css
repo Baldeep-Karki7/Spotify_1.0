@@ -25,10 +25,11 @@
     display: flex;
     column-gap: 15px;
     color: white;
+   /* flex-wrap: wrap;*/
 }
 .each-artist{
     max-height: 80%;
-    flex: 1;
+    flex: 1 1 calc(100%/7);
     column-gap: 10px;
     padding-left: 5px;
     padding-right: 5px;
@@ -83,4 +84,63 @@
     background-color: rgb(45, 44, 44);
     border-radius: 10px;
     cursor: pointer;
+}
+
+@media (max-width: 608px)
+{
+    .aA-main{
+        flex: 1 1 calc(100%/2);
+    }
+    .each-artist:nth-child(n+3)
+    {
+        display: none;
+    }
+}
+
+@media (max-width : 764px){
+    .aA-main{
+        flex: 1 1 calc(100%/3);
+    }
+    .each-artist:nth-child(n+4)
+    {
+        display: none;
+    }
+}
+@media (min-width : 830px) and (max-width:985px){
+    .aA-main{
+        flex : 1 1 calc(100%4);
+    }
+    .each-artist:nth-child(n+5)
+    {
+        display: none;
+    }
+}
+
+@media (min-width: 986px) and (max-width: 1206px)
+{
+    .aA-main{
+        flex: 1 1 calc(100%/5);
+    }
+    .each-artist:nth-child(n+6)
+    {
+        display: none;
+    }
+}
+
+@media (min-width : 1207px) and (max-width: 1400px)
+{
+    .aA-main{
+        flex:  1 1 calc(100%/6);
+    }
+ .each-artist:nth-child(n+7)
+    {
+        display: none;
+    }
+}
+
+@media (min-width : 1396px)
+{
+    .aA-main{
+        flex : 1 1 calc(100%/7);
+    }
 }

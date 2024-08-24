@@ -6,6 +6,7 @@ import './Home.css';
 import TopResult from "../../components/TopResult/TopResult.jsx";
 import SimSongs from "../../components/SimSongs/SimSongs.jsx";
 import Artist from "../../components/Artist/Artist.jsx";
+import Albums from "../../components/Albums/Albums.jsx";
 
 
 
@@ -69,6 +70,10 @@ function Home()
                 <div className="HomeMiddle-artist" >
                    {value && <Artist value={value}/>}
                    {!value && <Artist/>}
+                </div>
+
+                <div className="HomeMiddle-Albums">
+                    <h1>Albums</h1>
                 </div>
         </div>
 

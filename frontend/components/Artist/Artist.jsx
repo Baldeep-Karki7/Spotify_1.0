@@ -14,7 +14,6 @@ function Artist({value})
 
     useEffect(()=>
     {
-        console.log(value);
         setValue(value);
     },[value]);
 
@@ -22,25 +21,20 @@ function Artist({value})
     {
         const getArtists = async(token)=>
         {
-            try{
-                const response = await getAllArtists(Value,token);
-                const result = response.slice(0,7);
-                setArtists(result);
-                console.log(result);
-            }
-            catch(error)
-            {
-                console.log(error);
-            }
+            const response = await getAllArtists(Value,token);
+            const result = response.slice(0,7);
+            setArtists(result);
         }
-        getArtists(access_token);
+
+        try{
+            getArtists(access_token);
+        }
+        catch(error)
+        {
+            console.log(error);
+        }
     },[Value]);
 
-    function validImage(image)
-    {
-        if(image) return image;
-        return "";
-    }
 
     return(
         <div className='all-Artists'>

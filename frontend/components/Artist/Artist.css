@@ -106,7 +106,7 @@
         display: none;
     }
 }
-@media (min-width : 830px) and (max-width:985px){
+@media (min-width : 830px) and (max-width:1049px){
     .aA-main{
         flex : 1 1 calc(100%4);
     }
@@ -116,7 +116,7 @@
     }
 }
 
-@media (min-width: 986px) and (max-width: 1206px)
+@media (min-width: 1050px) and (max-width: 1206px)
 {
     .aA-main{
         flex: 1 1 calc(100%/5);
@@ -127,7 +127,7 @@
     }
 }
 
-@media (min-width : 1207px) and (max-width: 1400px)
+@media (min-width : 1207px) and (max-width: 1410px)
 {
     .aA-main{
         flex:  1 1 calc(100%/6);

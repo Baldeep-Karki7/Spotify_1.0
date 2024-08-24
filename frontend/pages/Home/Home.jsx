@@ -15,30 +15,6 @@ function Home()
     const access_token = useContext(tokenContext);
     const [value,setValue] = useState(null);
     const [query,setQuery] = useState(null);
-    const [song,setSong] = useState(null);
-    const [similarSongs,setSimilarSongs] = useState(null);
-
-
-    useEffect(()=>
-        {
-            async function Song()
-            {
-                try{
-                    const result = await getSong(value,access_token);
-                    setSong(result[0]);
-                    console.log(result[0]);
-                    const simSongs = result.slice(0,4);
-                    console.log(simSongs);
-                    setSimilarSongs(simSongs);
-                }
-                catch(error)
-                {
-                    console.log(error); 
-                }
-            }
-            Song();
-        },[value]);
-
 
     return(
         <div className="Home">
@@ -62,8 +38,10 @@ function Home()
             {/*/////////////////////////////////////////// */}
 
             <div className="HomeMiddle">
-                <TopResult song={song}/>
-                <SimSongs SimSongs={similarSongs}/>
+                 {value && <TopResult value={value}/>}
+                 {!value && <TopResult/>}
+                {value && <SimSongs value={value}/>}
+                {!value && <SimSongs/>}
                 </div>
             
           
@@ -73,7 +51,7 @@ function Home()
                 </div>
 
                 <div className="HomeMiddle-Albums">
-                    <h1>Albums</h1>
+                    {value && <Albums value={value}/>}
                 </div>
         </div>
 

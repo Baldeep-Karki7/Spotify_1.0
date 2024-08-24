@@ -1,8 +1,37 @@
+import {useState, useEffect, useContext} from 'react';
+import { tokenContext } from '../../src/App';
+import { getSimilarSongs } from '../../controllers';
 import './SimSongs.css';
 import play from '../../src/assets/Polygon_1.png';
 
-function SimSongs({SimSongs})
+
+function SimSongs({value})
 {
+    const access_token = useContext(tokenContext);
+    const [Value,setValue] = useState(value);
+    const [similarSongs,setSimilarSongs] = useState();
+
+    useEffect(()=>
+    {
+        setValue(value);
+    },[value]);
+
+    useEffect(()=>
+    {
+        const getSongs2 = async(token)=>
+        {
+            const response = await getSimilarSongs(Value,token);
+            setSimilarSongs(response);
+        }
+
+        try{
+            getSongs2(access_token);
+        }
+        catch(error)
+        {
+            console.log(error);
+        }
+    },[Value]);
 
     function getDurationInMin(time)
     {
@@ -17,7 +46,7 @@ function SimSongs({SimSongs})
     return(
          <div className="simSongs">
             <h2 className='ss-title'>Songs</h2>
-                { SimSongs && SimSongs.map((song,index)=>
+                {similarSongs && similarSongs.map((song,index)=>
                     {
                         return (<div className='simSongs-each' key={index}>
                             <div className="sse-left">

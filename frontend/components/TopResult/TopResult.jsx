@@ -1,9 +1,37 @@
 import {useState,useEffect,useContext} from 'react';
 import playBtn from '../../src/assets/playBtn.png';
+import { tokenContext } from '../../src/App';
+import { getSong } from '../../controllers';
 import './TopResult.css';
 
-function TopResult({song})
+function TopResult({value})
 {
+    const access_token = useContext(tokenContext);
+    const [Value,setValue] = useState(value);
+    const [song,setSong ] = useState();
+
+    useEffect(()=>
+    {
+        setValue(value);
+    },[value]);
+
+    useEffect(()=>
+    {
+        const getTopResult = async(token)=>
+        {
+            const response = await getSong(Value,token);
+            console.log(response);
+            setSong(response);
+        }
+        try{
+            getTopResult(access_token);
+        }
+        catch(error)
+        {
+            console.log(error); 
+        }
+    },[Value]);
+
     return(
         <div className="topResult">
             <div className='tR-header'>

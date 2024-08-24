@@ -3,6 +3,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
+    row-gap: 20px;
     font-family: Arial, Helvetica, sans-serif;
 }
 .HomeTop{
@@ -63,11 +64,11 @@
 .HomeTopRight{
     flex: 3;
 }
-.HomeMiddle{ /*Universal for all boxes in home page*/
+.HomeMiddle-songs{ /*Universal for all boxes in home page*/
     display: flex;
     column-gap: 20px;
     max-width: 95%;
-    margin: 10px 0px 10px 35px;
+    margin: 10px 0px 0px 35px;
     padding-bottom: 10px;
 }
 .topResult{
@@ -82,13 +83,13 @@
 .HomeMiddle-artist{
     flex: 1;
     background-color: black;
-    margin: 10px 0px 0px 35px;
+    margin: 0px 0px 0px 35px;
     max-width: 95%;
 }
 .HomeMiddle-Albums{
     flex: 1;
-    background-color: gray;
+    background-color: rgb(0, 0, 0);
     max-width: 95%;
-    margin: 10px 0px 0px 35px ;
+    margin: 7px 0px 0px 35px ;
 }
 

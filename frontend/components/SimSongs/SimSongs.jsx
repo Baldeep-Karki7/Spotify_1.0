@@ -1,6 +1,7 @@
 import {useState, useEffect, useContext} from 'react';
 import { tokenContext } from '../../src/App';
 import { getSimilarSongs } from '../../controllers';
+import { debounce } from 'lodash';
 import './SimSongs.css';
 import play from '../../src/assets/Polygon_1.png';
 
@@ -16,21 +17,24 @@ function SimSongs({value})
         setValue(value);
     },[value]);
 
-    useEffect(()=>
-    {
-        const getSongs2 = async(token)=>
+    useEffect(()=>{
+        const fetchSongs = debounce(async(token)=>  //as the fetchSong function is inside the useEffect it is recreated every time useEffect is fired, which is a waste of memory and causes ERROR : [maximum call size stack exceeded ] 
         {
-            const response = await getSimilarSongs(Value,token);
-            setSimilarSongs(response);
-        }
+            try{
+                const response = await getSimilarSongs(Value,token);
+                setSimilarSongs(response);
+            }
+            catch(error)
+            {
+                console.log(error);
+            }
+        },200);
 
-        try{
-            getSongs2(access_token);
-        }
-        catch(error)
-        {
-            console.log(error);
-        }
+        fetchSongs(access_token);
+
+        return ()=>fetchSongs.cancel();  //debounce causes the function to be fired only after 200ms after the user stops typing -> reduces no of calls
+        
+        //fetchSongs.cancel ensures that if 'Value' changes before the debounce is over, the previous call is cancelled. //efficient memmory utilization
     },[Value]);
 
     function getDurationInMin(time)

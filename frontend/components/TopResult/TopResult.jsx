@@ -2,6 +2,7 @@ import {useState,useEffect,useContext} from 'react';
 import playBtn from '../../src/assets/playBtn.png';
 import { tokenContext } from '../../src/App';
 import { getSong } from '../../controllers';
+import {debounce} from 'lodash';
 import './TopResult.css';
 
 function TopResult({value})
@@ -17,19 +18,22 @@ function TopResult({value})
 
     useEffect(()=>
     {
-        const getTopResult = async(token)=>
+        const getTopResult = debounce(async(token)=>
         {
-            const response = await getSong(Value,token);
-            console.log(response);
-            setSong(response);
-        }
-        try{
-            getTopResult(access_token);
-        }
-        catch(error)
-        {
-            console.log(error); 
-        }
+            try{
+                const response = await getSong(Value,token);
+                setSong(response);
+            }
+            catch(error)
+            {
+                console.log(error);
+            }
+        },200);
+
+        getTopResult(access_token);
+
+        return ()=>getTopResult.cancel(); ///cleaning function if value of 'Value' changes before debounce is over//
+
     },[Value]);
 
     return(

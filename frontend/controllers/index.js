@@ -69,7 +69,7 @@ export const getAllAlbums = async(name,token,type="album")=>
 {
     try{
         const response = await getResponse(name,token,type);
-        const result = await response.albums.items;
+        const result = await response.albums.items.slice(0,7);
         return result;
     }
     catch(error)
@@ -78,7 +78,8 @@ export const getAllAlbums = async(name,token,type="album")=>
     }
 }
 
-console.log(await getSimilarSongs('matsuri','BQCcxowUzUh0AL6LciIewm0wEZNZYzoiqjxp4IP9fXGd6ygf234Af6weNpSeWu8sJ2wLfsEu8DlVGC_VIa9MRcszG2HIkKCe8-C_0X_0_AUlWeBcT_Ehlu9yMicbosjQGjN_Sa-9aoCQP_itw81QmBh4nahsAARhnlbGcuWUSvULpXS1V7q34Xv85hEgOp_axBheIkEX2uZXmaZSu70BiYRipRmHUsR2-fT6'));
+
+
 
 
 

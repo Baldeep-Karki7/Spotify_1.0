@@ -2,6 +2,7 @@ import { useState,useEffect, useContext} from 'react';
 import { tokenContext } from '../../src/App';
 import { getAllArtists } from '../../controllers';
 import { dummyArtists } from '../../../dummy';
+import {debounce} from 'lodash';
 import btn from '../../src/assets/playBtn.png';
 import noImage from '../../src/assets/noImage.png';
 import './Artist.css';
@@ -19,20 +20,22 @@ function Artist({value})
 
     useEffect(()=>
     {
-        const getArtists = async(token)=>
+        const fetchArtists = debounce(async(token)=>
         {
-            const response = await getAllArtists(Value,token);
-            const result = response.slice(0,7);
-            setArtists(result);
-        }
+            try{
+                const response = await getAllArtists(Value,token);
+                const result = response.slice(0,7);
+                setArtists(result);
+            }
+            catch(error)
+            {
+                console.log(error);
+            }
+        },200);
 
-        try{
-            getArtists(access_token);
-        }
-        catch(error)
-        {
-            console.log(error);
-        }
+        fetchArtists(access_token);
+
+        return()=> fetchArtists.cancel();
     },[Value]);
 
 

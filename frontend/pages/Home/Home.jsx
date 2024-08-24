@@ -1,7 +1,6 @@
 import { useState,useContext,useEffect,createContext} from "react";
 import { tokenContext } from "../../src/App.jsx";
 import search from '../../src/assets/search-button-svgrepo-com.svg';
-import { getSong } from "../../controllers";
 import './Home.css';
 import TopResult from "../../components/TopResult/TopResult.jsx";
 import SimSongs from "../../components/SimSongs/SimSongs.jsx";
@@ -37,7 +36,7 @@ function Home()
             </div>
             {/*/////////////////////////////////////////// */}
 
-            <div className="HomeMiddle">
+            <div className="HomeMiddle-songs">
                  {value && <TopResult value={value}/>}
                  {!value && <TopResult/>}
                 {value && <SimSongs value={value}/>}
@@ -50,9 +49,10 @@ function Home()
                    {!value && <Artist/>}
                 </div>
 
-                <div className="HomeMiddle-Albums">
+                {<div className="HomeMiddle-Albums">
                     {value && <Albums value={value}/>}
-                </div>
+                    {!value && <Albums/>}
+                </div> }
         </div>
 
     )

@@ -14,7 +14,7 @@ const getResponse = async(name,token,type)=>
     }
     
 
-export const getArtistIdByName = async(name,token,type)=>
+export const getArtistIdByName = async(name,token,type="artist")=>
 {
     try{
         const result = await getResponse(name,token,type);
@@ -77,6 +77,26 @@ export const getAllAlbums = async(name,token,type="album")=>
         console.log(error);
     }
 }
+
+export const getProfileData = async(token)=>
+{
+    try{
+        const response = await fetch("https://api.spotify.com/v1/me",
+            {
+                method : 'GET',
+                headers : {
+                    Authorization : `Bearer ${token}`  
+                }
+
+            });
+        const result = await response.json();
+        return result;
+    }
+    catch(error){
+        console.log(error);
+    }
+}
+
 
 
 

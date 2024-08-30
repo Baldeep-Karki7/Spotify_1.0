@@ -1,12 +1,14 @@
 import React, { useContext, useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import TopTracks from "../../components/TopTracks/TopTracks.jsx";
 import './Profile.css';
-import { tokenContext } from "../../src/App.jsx";
+import { getProfileData } from "../../controllers/index.js";
 
 
 function Profile()
 {
-    const token = useContext(tokenContext);
+    const params = useParams();
+    const token = params.token;
     const [name,setName] = useState(null);
     const [email,setEmail] = useState(null);
     const [country,setCountry] = useState(null);
@@ -20,30 +22,10 @@ function Profile()
     
     useEffect(()=>
     {
-        async function getData(Token)
-        {
-        try{
-            const response = await fetch("https://api.spotify.com/v1/me",
-                {
-                    method : 'GET',
-                    headers : {
-                        Authorization : `Bearer ${Token}`  
-                    }
-
-                });
-            const result = await response.json();
-            console.log(result);
-            return result;
-        }
-        catch(error)
-        {
-            console.log(error);
-        }
-        }
 
         const populateUI = async()=>
         {
-            const data = await getData(token);
+            const data = await getProfileData(token);
             setName(data.display_name);
             setEmail(data.email);
             setType(data.type);
@@ -68,7 +50,7 @@ function Profile()
                     <div className="name">{name}</div>
                 </div>
             </div>
-            <TopTracks/>
+             <TopTracks Token={token}/>
         </div>
     )
 

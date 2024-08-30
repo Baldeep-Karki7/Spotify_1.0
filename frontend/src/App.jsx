@@ -35,7 +35,7 @@ function App(){
     {
       const refresh = async()=>
         {
-          const url = new URL('http://localhost:4000/api/refresh');
+          const url = new URL('http://localhost:5173/api/refresh');
           url.searchParams.append("refresh_token",refreshToken);
     
           try{
@@ -60,7 +60,7 @@ function App(){
         }
         
         refresh();
-    },(expiresIn-60)*1000);
+    },(parseInt(expiresIn)-120)*1000);
 
     return ()=>clearInterval(interval);
 

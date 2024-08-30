@@ -1,5 +1,7 @@
 import { useState,useContext,useEffect,createContext} from "react";
+import { Link } from "react-router-dom";
 import { tokenContext } from "../../src/App.jsx";
+import { getProfileData } from "../../controllers/index.js";
 import search from '../../src/assets/search-button-svgrepo-com.svg';
 import './Home.css';
 import TopResult from "../../components/TopResult/TopResult.jsx";
@@ -14,6 +16,26 @@ function Home()
     const access_token = useContext(tokenContext);
     const [value,setValue] = useState(null);
     const [query,setQuery] = useState(null);
+    const [profileImg,setProfileImg] = useState();
+    const [profileName,setProfileName] = useState();
+
+    useEffect(()=>
+    {
+        const fetchProfile = async()=>
+        {
+            const response = await getProfileData(access_token);
+            setProfileImg(response.images[0].url);
+            setProfileName(response.display_name);
+        }
+
+        try{
+            fetchProfile();
+        }
+        catch(error)
+        {
+            console.log(error);
+        }
+    },[access_token]);
 
     return(
         <div className="Home">
@@ -32,6 +54,11 @@ function Home()
                 </div>
 
                 <div className="HomeTopRight">
+                      
+                       <div className="HTR-profile-container">
+                       <span className="HTR-name">{profileName}</span>
+                        <Link to={`/profile/${access_token}`}> <img src={profileImg} alt="image" className="HTR-profile-image"/></Link>
+                       </div>
                 </div>
             </div>
             {/*/////////////////////////////////////////// */}

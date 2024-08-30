@@ -19,7 +19,28 @@
     border: 1px solid black;
     color: white;
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    position: relative;
+}
+.ttt-left-home-btn{
+    max-width: 50px;
+    max-width: 50px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+}
+.home-btn{
+    width: 90%;
+    object-fit: contain;
+    border-radius: 50%;
+    background-color: rgb(47, 46, 46);
+    transition: width 0.25s ease;
+}
+.home-btn:hover{
+    width: 100%;
+    cursor: pointer;
 }
 
 /*title right part*/
@@ -108,8 +129,8 @@ li{
     position: absolute;
     bottom: 20px;
     right: 10px;
-    max-width: 65px;
-    max-height: 65px;
+    max-width: 60px;
+    max-height: 60px;
     border-radius: 50%;
     opacity: 0;
     transition: opacity ease-in 0.3s;

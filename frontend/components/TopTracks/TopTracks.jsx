@@ -1,22 +1,23 @@
 import { useState,useEffect,useContext} from "react";
-import { tokenContext } from "../../src/App.jsx";
+import { debounce } from "lodash";
+import { Link } from 'react-router-dom';
 import search from '../../src/assets/search.webp';
 import { getArtistIdByName } from "../../controllers";
 import playBtn from '../../src/assets/playBtn.png';
+import homeBtn from '../../src/assets/spotify-home.png';
 import './TopTracks.css';
 
-function TopTracks()
+function TopTracks({Token})
 {
-    const access_token = useContext(tokenContext);
+    const access_token = Token;
     const [topTracks,setTopTracks] = useState([]);
     const [artist,setArtist] = useState('shiloh');
     const [artistId,setArtistId] = useState('1wxPItEzr7U7rGSMPqZ25r');  //so that error doesnot come
 
 
-
      useEffect(()=>
         {
-            const getId = async()=>
+            const getId = debounce(async()=>
             {
                 try{
                     const id = await getArtistIdByName(artist,access_token);
@@ -27,9 +28,12 @@ function TopTracks()
                 {
                     console.log(error);
                 }
-            }
+            },200);
 
             getId();
+
+            return ()=>getId.cancel();
+
         },[artist]);
 
     
@@ -71,11 +75,12 @@ function TopTracks()
 
     return(
         access_token && <div className="topTracksContainer">
-
-
             <div className="topTracks-title">
 
                 <div className="ttt-left">
+                    <div className="ttt-left-home-btn">
+                       <Link to="/"> <img src={homeBtn} alt="home" className="home-btn"/></Link>
+                    </div>
                     <h1>Top Tracks Of : {function upper()
                     {
                         return artist.toUpperCase();

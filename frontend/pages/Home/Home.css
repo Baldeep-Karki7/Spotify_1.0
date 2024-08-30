@@ -63,6 +63,52 @@
 
 .HomeTopRight{
     flex: 3;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 40px;
+    position: relative;
+    z-index: 1;
+}
+.HTR-profile-container{
+    display: inline;
+    position: relative;
+}
+.HTR-profile-image{
+    border-radius: 50%;
+    border: 8px solid rgba(109, 109, 109, 0.4);
+    --min-pIh: 24px; --min-pIw: 24px; --max-pIw: 34px; --max-pIh: 34px;
+    min-height: var(--min-pIh);
+    min-width: var(--min-pIw);
+    max-height: var(--max-pIh);
+    max-width: var(--max-pIw);
+    transition: all 0.2s ease;
+}
+.HTR-name{
+    display: flex;
+    align-items: center;
+    --pName-height : 17%;
+    height: var(--pName-height);
+    color: white;
+    position: absolute;
+    bottom: calc(calc(var(--pName-height) + 20px) * -1 );
+    border-radius: 3px;
+    right: 15px;
+    background-color: rgb(137, 135, 135);
+    padding: 10px 10px;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+.HTR-profile-image:hover{
+    cursor: pointer;
+    min-height: calc(var(--min-pIh)+ calc(0.1 * var(--min-pIh)));
+    min-width: calc(var(--min-pIw) + calc(0.1 * var(--min-pIw)));
+    max-height: calc(var(--max-pIh)+ calc(0.1 * var(--max-pIh)));
+    max-width: calc(var(--max-pIw) + calc(0.1 * var(--max-pIw)));
+}
+.HTR-profile-container:hover .HTR-name{
+    opacity: 1;
 }
 .HomeMiddle-songs{ /*Universal for all boxes in home page*/
     display: flex;

@@ -22,6 +22,7 @@ function TopResult({value})
         {
             try{
                 const response = await getSong(Value,token);
+                console.log(response);
                 setSong(response);
             }
             catch(error)
@@ -51,7 +52,7 @@ function TopResult({value})
                         <p className="tR-songName">{song.name}</p>
                         <p className="tR-artist"><span className='tRa-left'>Song</span> &#x2022; <span className="tRa-right">{song.artists[0].name}</span></p>
 
-                        <img src={playBtn} alt="play" className='tR-playBtn'/>
+                        <a href={song.uri}><img src={playBtn} alt="play" className='tR-playBtn'/></a>
                     </div> }
                 </div>
     )

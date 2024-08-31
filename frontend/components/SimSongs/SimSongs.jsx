@@ -55,7 +55,7 @@ function SimSongs({value})
                         return (<div className='simSongs-each' key={index}>
                             <div className="sse-left">
                                 <img src={song.album.images[2].url} alt="image" className='songImage'/>
-                                <img src={play} className='play'/>
+                                <a href={song.uri}><img src={play} className='play'/></a>
                             </div>
                             <div className="sse-middle">
                                 <div className="sseM-top">{song.name}</div>

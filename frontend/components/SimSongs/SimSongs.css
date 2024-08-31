@@ -49,7 +49,7 @@
     right: 40%;
     display: none;
 }
-.simSongs-each:hover>.sse-left>.play{
+.simSongs-each:hover>.sse-left> a .play{
     display: block;
 }
 .simSongs-each:hover>.sse-left>.songImage{

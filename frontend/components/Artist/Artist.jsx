@@ -25,6 +25,7 @@ function Artist({value})
             try{
                 const response = await getAllArtists(Value,token);
                 const result = response.slice(0,7);
+                console.log(result);
                 setArtists(result);
             }
             catch(error)
@@ -50,7 +51,7 @@ function Artist({value})
                     return(<div className='each-artist' key={index}>
                         <p className='eA-image'>
                             {artist && artist.images && artist.images[1] ? (<img src={artist.images[1].url} alt="artist-image"/>):(<img src={noImage} alt="artist-image"/>)}
-                            <img src={btn} alt="play" className='ea-playBtn'/>
+                            <a href={artist.uri}><img src={btn} alt="play" className='ea-playBtn' /></a>
                         </p>
                         <p className='eA-name'>{artist.name}</p>
                         <p className='eA-class'>Artist</p>

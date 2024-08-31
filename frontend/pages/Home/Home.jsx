@@ -57,7 +57,7 @@ function Home()
                       
                        <div className="HTR-profile-container">
                        <span className="HTR-name">{profileName}</span>
-                        <Link to={`/profile/${access_token}`}> <img src={profileImg} alt="image" className="HTR-profile-image"/></Link>
+                         <img src={profileImg} alt="image" className="HTR-profile-image"/>
                        </div>
                 </div>
             </div>

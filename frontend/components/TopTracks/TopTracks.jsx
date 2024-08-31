@@ -78,9 +78,6 @@ function TopTracks({Token})
             <div className="topTracks-title">
 
                 <div className="ttt-left">
-                    <div className="ttt-left-home-btn">
-                       <Link to="/"> <img src={homeBtn} alt="home" className="home-btn"/></Link>
-                    </div>
                     <h1>Top Tracks Of : {function upper()
                     {
                         return artist.toUpperCase();

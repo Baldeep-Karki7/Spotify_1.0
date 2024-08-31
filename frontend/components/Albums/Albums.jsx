@@ -26,6 +26,7 @@ function Albums({value})
             try{
                 const response = await getAllAlbums(Value,token);
                 console.log(response[0]);
+                console.log(response);
                 setAlbums(response);
             }
             catch(error)
@@ -81,7 +82,7 @@ function Albums({value})
                 return(<div className='each-album' key={index}>
                     <p className='eAl-image'>
                         {album && album.images && album.images[1] ? (<img src={album.images[1].url} alt="album-image"/>):(<img src={noImage} alt="album-image"/>)}
-                        <img src={btn} alt="play" className='eAl-playBtn'/>
+                        <a href={album.uri}><img src={btn} alt="play" className='eAl-playBtn'/></a>
                     </p>
                     <p className='eAl-name'>{fetchAlbumName(album.name)}</p>
                     <p className='eAl-artists'><span className='date'>{fetchDate(album)}</span> &#x2022; <span className='eAl-footer-artist'>{fetchArtists(album)}</span>

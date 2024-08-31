@@ -76,7 +76,7 @@
 .ea-playBtn:hover {
     transform: scale(1.2);
 }
-.each-artist:hover .ea-playBtn{
+.each-artist:hover >.eA-image> a > .ea-playBtn{
     opacity: 1;
     transform: translateY(-10px);
 }

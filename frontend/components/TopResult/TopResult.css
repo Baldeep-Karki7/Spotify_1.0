@@ -72,7 +72,7 @@
     display: none;
     transition: display transform ease-in 0.3s;
 }
-.tR-Main:hover>.tR-playBtn{
+.tR-Main:hover> a .tR-playBtn{
     transform: translateY(-90%);
     display: block;
 }
